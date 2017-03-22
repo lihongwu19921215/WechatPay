@@ -1,6 +1,6 @@
-package com.zghm.wldm.third.wechat.utils;
+package me.homiss.utils;
 
-import com.zghm.wldm.util.HttpClientUtil;
+import cn.zhikr.wechatshare.pay.utils.client.HttpClientUtil;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;

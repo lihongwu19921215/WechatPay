@@ -1,8 +1,8 @@
-package com.zghm.wldm.third.wechat.utils;
+package me.homiss.utils;
 
 
-import com.zghm.wldm.third.wechat.constant.GlobalConfig;
-import com.zghm.wldm.third.wechat.utils.http.HttpClientConnectionManager;
+import me.homiss.constant.GlobalConfig;
+import me.homiss.utils.http.HttpClientConnectionManager;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.params.ClientPNames;
@@ -38,30 +38,22 @@ public class GetWxOrderno {
         httpclient = (DefaultHttpClient) HttpClientConnectionManager.getSSLInstance(httpclient);
     }
 
-    public static String getUrlCode(String url,String xmlParam){
+    public static Map<String, String> getPreOrder(String url,String xmlParam){
         DefaultHttpClient client = new DefaultHttpClient();
         client.getParams().setParameter(ClientPNames.ALLOW_CIRCULAR_REDIRECTS, true);
         HttpPost httpost = HttpClientConnectionManager.getPostMethod(url);
-        String prepay_id = "";
-        String urlCode = "";
         try {
             httpost.setEntity(new StringEntity(xmlParam, "UTF-8"));
             HttpResponse response = httpclient.execute(httpost);
             String jsonStr = EntityUtils.toString(response.getEntity(), "UTF-8");
             System.out.println(jsonStr);
-
-            if (jsonStr.indexOf("FAIL") != -1) {
-                return prepay_id;
-            }
-            Map map = doXMLParse(jsonStr);
-            String return_code = (String) map.get("return_code");
-            prepay_id = (String) map.get("prepay_id");
-            urlCode = (String) map.get("code_url");
+            Map<String, String> map = doXMLParse(jsonStr);
+            return map;
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return urlCode;
+        return null;
     }
 
     public static Map<String, Object> forRefund(String url, String xmlParam) throws KeyStoreException, IOException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyManagementException {
@@ -111,7 +103,7 @@ public class GetWxOrderno {
      * @param strxml
      * @return
      */
-    public static Map doXMLParse(String strxml) throws Exception {
+    public static Map<String, String> doXMLParse(String strxml) throws Exception {
         if (null == strxml || "".equals(strxml)) {
             return null;
         }
@@ -174,4 +166,21 @@ public class GetWxOrderno {
         return new ByteArrayInputStream(str.getBytes());
     }
 
+    public Map<String, String> getOrderquery(String url, String xml) {
+        DefaultHttpClient client = new DefaultHttpClient();
+        client.getParams().setParameter(ClientPNames.ALLOW_CIRCULAR_REDIRECTS, true);
+        HttpPost httpost = HttpClientConnectionManager.getPostMethod(url);
+        try {
+            httpost.setEntity(new StringEntity(xml, "UTF-8"));
+            HttpResponse response = httpclient.execute(httpost);
+            String jsonStr = EntityUtils.toString(response.getEntity(), "UTF-8");
+            System.out.println(jsonStr);
+            // Map<String, String> map = doXMLParse(jsonStr);
+            return null;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

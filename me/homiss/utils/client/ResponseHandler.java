@@ -1,8 +1,9 @@
-package com.zghm.wldm.third.wechat.client;
+package me.homiss.utils.client;
 
 
-import com.zghm.wldm.third.wechat.utils.MD5Util;
-import com.zghm.wldm.util.XMLUtil;
+import cn.zhikr.wechatshare.pay.utils.MD5Util;
+import cn.zhikr.wechatshare.pay.utils.TenpayUtil;
+import cn.zhikr.wechatshare.pay.utils.XMLUtil;
 import org.jdom.JDOMException;
 
 import javax.servlet.http.HttpServletRequest;

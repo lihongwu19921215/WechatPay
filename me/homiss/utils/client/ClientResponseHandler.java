@@ -1,11 +1,12 @@
-package com.zghm.wldm.third.wechat.client;
+package me.homiss.utils.client;
 
-import com.zghm.wldm.third.wechat.utils.MD5Util;
-import com.zghm.wldm.third.wechat.utils.XMLUtil;
+import cn.zhikr.wechatshare.pay.utils.MD5Util;
+import cn.zhikr.wechatshare.pay.utils.XMLUtil;
 import org.jdom.JDOMException;
 
 import java.io.IOException;
 import java.util.*;
+
 /**
  * 后台应答类<br/>
  * ========================================================================<br/>

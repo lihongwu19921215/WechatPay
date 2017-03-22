@@ -1,62 +1,32 @@
-package com.zghm.wldm.third.wechat.controller;
+package me.homiss.controller;
 
-import com.zghm.wldm.book.service.BookService;
-import com.zghm.wldm.busi.service.GoodsWaterService;
-import com.zghm.wldm.busi.service.RepastWaterService;
-import com.zghm.wldm.busi.service.StayWaterService;
-import com.zghm.wldm.third.wechat.client.ResponseHandler;
-import com.zghm.wldm.third.wechat.constant.GlobalConfig;
-import com.zghm.wldm.util.SMSUtil;
-import org.apache.log4j.Logger;
-import org.jdom.JDOMException;
+
+import me.homiss.constant.GlobalConfig;
+import me.homiss.utils.client.ResponseHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.zghm.wldm.third.constant.PayConstant.PAYWAY_WECHAT;
 
 /**
- * wldm
  * 微信回调接口
- *
  * @author Homiss
  * @version 1.0, 2015/12/16
  */
 @Controller
 @RequestMapping("/")
-public class WechatOrderBack {
+public class WechatOrderBackController {
 
-    private static final Logger logger = Logger.getLogger(WechatQrCodePay.class);
-
-    @Resource
-    private StayWaterService stayWaterService;
-    @Resource
-    private RepastWaterService repastWaterService;
-    @Resource
-    private GoodsWaterService goodsWaterService;
-    @Resource
-    private BookService bookService;
-
-    @RequestMapping(value = "/config/weixinPay_result")
+    @RequestMapping(value = "/wechat/pay/callback")
     public void wechatOrderBack(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //---------------------------------------------------------
         //财付通支付通知（后台通知）
         //---------------------------------------------------------
-        //商户号
-        String partner = GlobalConfig.MCH_ID;
-        //密钥
-        String key = GlobalConfig.KEY;
         //创建支付应答对象
         ResponseHandler resHandler = new ResponseHandler(request, response);
-        resHandler.setKey(key);
+        resHandler.setKey(GlobalConfig.KEY);
         //判断签名是否正确
         if(resHandler.isTenpaySign()) {
             //------------------------------

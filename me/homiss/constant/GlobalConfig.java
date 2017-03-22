@@ -1,4 +1,4 @@
-package com.zghm.wldm.third.wechat.constant;
+package me.homiss.constant;
 
 /**
  * wldm

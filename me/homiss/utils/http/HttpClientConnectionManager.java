@@ -1,7 +1,4 @@
-package com.zghm.wldm.third.wechat.utils.http;
-
-
-
+package me.homiss.utils.http;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;

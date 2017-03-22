@@ -1,13 +1,9 @@
-package com.zghm.wldm.third.wechat.utils.http;
+package me.homiss.utils.http;
 
-
-
-
-
-
-import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.httpclient.Header;
+
+import java.io.UnsupportedEncodingException;
 
 
 

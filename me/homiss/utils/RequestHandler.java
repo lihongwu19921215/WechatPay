@@ -1,4 +1,4 @@
-package com.zghm.wldm.third.wechat.utils;
+package me.homiss.utils;
 
 
 
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
-
 
 
 /*

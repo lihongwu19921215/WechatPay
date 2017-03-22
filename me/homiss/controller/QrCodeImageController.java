@@ -1,6 +1,6 @@
-package com.zghm.wldm.third.wechat.controller;
+package me.homiss.controller;
 
-import com.zghm.wldm.util.QRCodeUtil;
+import me.homiss.utils.http.QRCodeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,20 +8,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
- * wldm
- *
+ * 通过codeUrl的值生成二维码并返回
  * @author Homiss
  * @version 1.0, 2015/12/18
  */
 @Controller
-public class QrCodeImage {
+public class QrCodeImageController {
 
-    @RequestMapping("/qr_code.img")
+    @RequestMapping("/qrcode.img")
     @ResponseBody
-    public void getQrCode(String code_url, HttpServletResponse response) throws Exception {
+    public void getQrCode(String codeUrl, HttpServletResponse response) throws Exception {
         // String qrCode = QRCodeUtil.encode("qrCode", qrCodePath);
         ServletOutputStream sos = response.getOutputStream();
-        QRCodeUtil.encode(code_url, sos);
+        QRCodeUtil.encode(codeUrl, sos);
     }
+
+
 }

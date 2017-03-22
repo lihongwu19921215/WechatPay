@@ -1,14 +1,8 @@
-package com.zghm.wldm.third.wechat.utils;
-
-
+package me.homiss.utils;
 
 
 import java.security.MessageDigest;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.SortedMap;
+import java.util.*;
 
 /*
 '============================================================================

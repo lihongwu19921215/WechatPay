@@ -1,4 +1,4 @@
-package com.zghm.wldm.third.wechat.utils;
+package me.homiss.utils;
 
 
 

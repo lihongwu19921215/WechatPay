@@ -1,15 +1,12 @@
-package com.zghm.wldm.third.wechat.utils.http;
+package me.homiss.utils.http;
 
 
-
-
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-
-import org.apache.http.conn.ssl.SSLSocketFactory;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 
 public class MySSLSocketFactory extends SSLSocketFactory{
 	

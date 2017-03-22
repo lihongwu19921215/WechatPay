@@ -1,4 +1,4 @@
-package com.zghm.wldm.third.wechat.utils.http;
+package me.homiss.utils.http;
 
 /*
  * Alipay.com Inc.
